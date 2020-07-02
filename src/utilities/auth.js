@@ -3,14 +3,14 @@ import qs from 'qs';
 
 const axios = Axios.create({
     baseURL: 'http://localhost:3000',
-    withCredentials: true
+    withCredentials: true,
+    headers: { 'content-type': 'application/x-www-form-urlencoded' }
 })
 
 export const signup = (user)=>{
     return axios({
         method: "POST",
         url: "signup",
-        headers: { 'content-type': 'application/x-www-form-urlencoded' },
         data: qs.stringify(user),
     })
     .then((response)=> {        
@@ -22,8 +22,7 @@ export const login = (user) => {
     return axios({
         method: "POST",
         url: "login",
-        headers: { 'content-type': 'application/x-www-form-urlencoded' },
-        data: qs.stringify(user),
+        data: qs.stringify(user)
     })
         .then((response) => {
             setUser(response.data)

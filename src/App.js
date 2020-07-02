@@ -5,6 +5,7 @@ import Signup from './pages/user/Signup';
 import Login from './pages/user/Login';
 import Logout from './pages/user/Logout';
 import Fridge from './pages/Fridge';
+import Submit from './modals/Submit';
 
 export default class App extends Component {
   // constructor(props) {
@@ -30,7 +31,8 @@ export default class App extends Component {
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
         <Route path="/logout" component={Logout} />
-        <Route path="username/fridge" component={Fridge} />
+        <Route path="/fridge" component={Fridge} />
+        <Route path="/submit" component={Submit} />
       </Router>
     )
   }

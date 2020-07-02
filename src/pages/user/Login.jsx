@@ -17,21 +17,18 @@ export default class Login extends Component {
     }
 
     handleChange(e) {
-        let userCopy = {...this.state.user};
-        userCopy[e.target.name] = e.target.value;
+        let user = {...this.state.user};
+        user[e.target.name] = e.target.value;
         this.setState({
-            user: userCopy
+            user
         })
     }
 
     loginUser(e) {
+        e.preventDefault();
         login(this.state.user)
         .then(() => {
-            this.setState({
-                error: null
-            }, () => {
-            this.props.history.push("/username/fridge")
-            })
+            this.props.history.push("/fridge")
         })
         .catch((error) => {
             this.setState({error: error.response && error.response.data})

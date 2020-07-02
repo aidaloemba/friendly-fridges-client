@@ -1,0 +1,52 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+}
+
+.navbar-trans {
+    background-color: transparent;
+}
+
+.splash {
+    background-image: url("/images/photo-1592231167824-f3bf35eee521.jpeg");
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 3em;
+}
+
+.benefit {
+    z-index: 1;
+    position: absolute;
+    top: 75vh;
+    right: 25px;
+    width: 400px;
+    height: 450px;
+    padding: 50px;
+    background-color: #ffffff;
+    color: #000000;
+
+}
+
+.features {
+    height: 500px;
+    width: 500px;
+    margin-right: 25%;
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: left;
+}
+

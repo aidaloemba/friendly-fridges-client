@@ -25,7 +25,7 @@ export default class Signup extends Component {
         e.preventDefault();
         signup(this.state.user)
         .then(() => {
-            this.props.history.push("/username/fridge")
+            this.props.history.push("/fridge")
         })
     }
 
