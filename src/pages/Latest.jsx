@@ -9,23 +9,17 @@ import Card from 'react-bootstrap/Card';
 // import { Link } from 'react-router-dom';
 
 export default class Latest extends Component {
-
-        
-        state = {
+    constructor(props) {
+        super(props)
+        this.state = {
             foods: [],
             error: null
         }
-    
-
-    componenentDidMount() {
-        this.getFoods();
     }
 
-    getFoods() {
-        debugger
+    componentDidMount() {
         axios.get('http://localhost:3000/latest')
         .then(response => {
-            
             this.setState({
                 foods: response.data
             })
@@ -43,121 +37,28 @@ export default class Latest extends Component {
                         </Col>
                     </Row>
                     <Row>
-                    
-                    
-                
-
-                {
+                        <CardColumns>
+                        {
                     this.state.foods.map((food, index) => {
                         return (
-                            <div key={`${food.name}-${food.owner}`}>
-                                {/* <Link to={`/foods/${food._id}`}> */}
-                                
-                                        <h5>{food.name}</h5>
-                                        <h6>{food.category}</h6>
-                                        <p>{food.owner}</p>
-                                    
-                                {/* </Link> */}
+                            <div key={`${food._id}-${food.owner}`}>
+                            <Card>
+                                <Card.Img variant="top" src={food.photo} alt="Food name photo"/>
+                                <Card.Body>
+                                <Card.Title>{food.name}</Card.Title>
+                                <Card.Text>
+                                    <h5>{food.category}</h5>
+                                    <p>{food.description}</p>
+                                </Card.Text>
+                                </Card.Body>
+                                <Card.Footer>
+                                <small className="text-muted">Submitted 3 days ago in Amsterdam by {food.owner}</small>
+                                </Card.Footer>
+                            </Card>
                             </div>
                         )
                     })
                 }
-
-
-
-
-
-                        <CardColumns>
-                            <Card>
-                                <Card.Img variant="top" src="holder.js/100px160" />
-                                <Card.Body>
-                                <Card.Title>Card title that wraps to a new line</Card.Title>
-                                <Card.Text>
-                                    This is a longer card with supporting text below as a natural lead-in to
-                                    additional content. This content is a little bit longer.
-                                </Card.Text>
-                                </Card.Body>
-                            </Card>
-                            <Card className="p-3">
-                                <blockquote className="blockquote mb-0 card-body">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
-                                    erat a ante.
-                                </p>
-                                <footer className="blockquote-footer">
-                                    <small className="text-muted">
-                                    Someone famous in <cite title="Source Title">Source Title</cite>
-                                    </small>
-                                </footer>
-                                </blockquote>
-                            </Card>
-                            <Card>
-                                <Card.Img variant="top" src="holder.js/100px160" />
-                                <Card.Body>
-                                <Card.Title>Card title</Card.Title>
-                                <Card.Text>
-                                    This card has supporting text below as a natural lead-in to additional
-                                    content.{' '}
-                                </Card.Text>
-                                </Card.Body>
-                                <Card.Footer>
-                                <small className="text-muted">Last updated 3 mins ago</small>
-                                </Card.Footer>
-                            </Card>
-                            <Card bg="primary" text="white" className="text-center p-3">
-                                <blockquote className="blockquote mb-0 card-body">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
-                                    erat a ante.
-                                </p>
-                                <footer className="blockquote-footer">
-                                    <small className="text-muted">
-                                    Someone famous in <cite title="Source Title">Source Title</cite>
-                                    </small>
-                                </footer>
-                                </blockquote>
-                            </Card>
-                            <Card className="text-center">
-                                <Card.Body>
-                                <Card.Title>Card title</Card.Title>
-                                <Card.Text>
-                                    This card has supporting text below as a natural lead-in to additional
-                                    content.{' '}
-                                </Card.Text>
-                                <Card.Text>
-                                    <small className="text-muted">Last updated 3 mins ago</small>
-                                </Card.Text>
-                                </Card.Body>
-                            </Card>
-                            <Card>
-                                <Card.Img src="holder.js/100px160" />
-                            </Card>
-                            <Card className="text-right">
-                                <blockquote className="blockquote mb-0 card-body">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
-                                    erat a ante.
-                                </p>
-                                <footer className="blockquote-footer">
-                                    <small className="text-muted">
-                                    Someone famous in <cite title="Source Title">Source Title</cite>
-                                    </small>
-                                </footer>
-                                </blockquote>
-                            </Card>
-                            <Card>
-                                <Card.Body>
-                                <Card.Title>Card title</Card.Title>
-                                <Card.Text>
-                                    This is a wider card with supporting text below as a natural lead-in to
-                                    additional content. This card has even longer content than the first to
-                                    show that equal height action.
-                                </Card.Text>
-                                <Card.Text>
-                                    <small className="text-muted">Last updated 3 mins ago</small>
-                                </Card.Text>
-                                </Card.Body>
-                            </Card>
                         </CardColumns>
 
                     </Row>

@@ -7,6 +7,8 @@ import Logout from './pages/user/Logout';
 import Fridge from './pages/Fridge';
 import Latest from './pages/Latest';
 import SubmitFood from './modals/SubmitFood';
+import Detail from './pages/food/Detail';
+import Update from './modals/food/Update';
 
 export default class App extends Component {
   // constructor(props) {
@@ -34,7 +36,9 @@ export default class App extends Component {
         <Route path="/logout" component={Logout} />
         <Route path="/latest" component={Latest} />
         <Route path="/fridge" component={Fridge} />
-        <Route path="/submit/food" component={SubmitFood} />
+        <Route path="/food/submit" component={SubmitFood} />
+        <Route path="/food/detail" component={Detail} />
+        <Route path="/food/update" component={Update} />
       </Router>
     )
   }

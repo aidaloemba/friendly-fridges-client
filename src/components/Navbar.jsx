@@ -6,7 +6,7 @@ import { getUser } from '../utilities/auth';
 import SubmitFood from '../modals/SubmitFood';
 
 
-export default function NavbarComponent()  {
+export default function NavbarComponent(props)  {
 
     let user = getUser()
     const [modalShow, setModalShow] = React.useState(false);
@@ -28,6 +28,7 @@ export default function NavbarComponent()  {
                             Submit food
                         </NavDropdown.Item>
                         <SubmitFood
+                        {...props}
                             show={modalShow}
                             onHide={() => setModalShow(false)}
                         />

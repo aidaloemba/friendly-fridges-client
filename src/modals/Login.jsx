@@ -29,6 +29,7 @@ export default class Login extends Component {
 
     loginUser(e) {
         e.preventDefault();
+        
         login(this.state.user)
         .then(() => {
             this.props.history.push("/fridge")

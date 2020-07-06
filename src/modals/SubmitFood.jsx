@@ -17,22 +17,20 @@ export default class SubmitFood extends Component {
             category: '',
             description: '',
             owner: '',
-            location: '',
-            error: ''
+            location: ''
           }
-          
     }
 
     handleSubmit(e){
         e.preventDefault();
         // let formData = new FormData(this.formRef.current);
-
+        // debugger here
         const setFood = (food)=> {
             window.localStorage.setItem("food", JSON.stringify(food));
         }
         
              axios({
-                url: 'http://localhost:3000/submit',
+                url: 'http://localhost:3000/food/submit',
                 data: qs.stringify(this.state.food),
                 headers: {
                     'content-type': 'application/x-www-form-urlencoded' 
@@ -41,10 +39,6 @@ export default class SubmitFood extends Component {
                 method: "POST"
             })
             .then((response)=>{
-                this.setState = {
-                    owner: "owner",
-                    location: "location"
-                }
                 setFood(response.data)
                 this.props.history.push("/fridge");
             })
@@ -54,6 +48,7 @@ export default class SubmitFood extends Component {
                 });
             });
     }
+    
 
     handleChange(e) {
         let food = {...this.state.food};
@@ -90,10 +85,13 @@ export default class SubmitFood extends Component {
                         <Form.Group controlId="category">
                             <Form.Control placeholder="Category" name="category" as="select" onChange={this.handleChange}>
                                 <option defaultValue>Category</option>
-                                <option value="1">Fruits & Vegetables</option>
-                                <option value="2">Cooked meal</option>
-                                <option value="3">Option 3</option>
-                                <option value="4">Option 4</option>
+                                <option value="Fruits & Vegetables">Fruits & Vegetables</option>
+                                <option value="Meat">Meat</option>
+                                <option value="Poultry & Eggs">Poultry & Eggs</option>
+                                <option value="Fish & Seafood">Fish & Seafood</option>
+                                <option value="Vegan">Vegan</option>
+                                <option value="Beverage">Beverage</option>
+                                <option value="Cooked Meal">Cooked Meal</option>
                                 <option value="5">Option 5</option>
                             </Form.Control>
                         </Form.Group>
@@ -101,15 +99,6 @@ export default class SubmitFood extends Component {
                             <Form.Control placeholder="Description" name="description" as="textarea" rows="3" onChange={this.handleChange} />
                         </Form.Group>
 
-
-                        <Form.Group controlId="owner">
-                            <input name="owner" type="hidden" value="owner" />
-                        </Form.Group>
-
-                        <Form.Group controlId="location">
-                            <Form.Control name="location" type="hidden" value="location" />
-                        </Form.Group>
-                        
                         <Button variant="dark" type="submit">Submit</Button>
                         
                     </Form>

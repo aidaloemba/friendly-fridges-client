@@ -9,7 +9,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-export default function Home() {
+export default function Home(props) {
 
     const [lgShow, setLgShow] = React.useState(false);
     const [smShow, setSmShow] = React.useState(false);
@@ -23,6 +23,7 @@ export default function Home() {
                     <ButtonGroup className="mr-2">
                         <Button variant="dark" onClick={() => setLgShow(true)}>Sign up</Button>
                         <Signup
+                        {...props}
                         size="lg"
                         show={lgShow}
                         onHide={() => setLgShow(false)}
@@ -31,6 +32,7 @@ export default function Home() {
                     <ButtonGroup className="mr-2">
                         <Button variant="outline-dark" onClick={() => setSmShow(true)}>Log in</Button>
                         <Login
+                        {...props}
                         size="sm"
                         show={smShow}
                         onHide={() => setSmShow(false)}

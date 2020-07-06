@@ -14,7 +14,7 @@ export const signup = (user)=>{
         data: qs.stringify(user),
     })
     .then((response)=> {        
-        setUser(response.data);
+        return setUser(response.data);
     })
 }
 
@@ -24,9 +24,9 @@ export const login = (user) => {
         url: "login",
         data: qs.stringify(user)
     })
-        .then((response) => {
-            setUser(response.data)
-        })
+    .then((response) => {
+        return setUser(response.data)
+    })
 }
 
 export const logout = () => {

@@ -18,7 +18,6 @@ export default class Signup extends Component {
     }
 
     handleChange(e) {
-        debugger
         let user = {...this.state.user};
         user[e.target.name] = e.target.value;
         this.setState({
