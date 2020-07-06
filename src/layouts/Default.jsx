@@ -1,10 +1,10 @@
 import React from 'react';
-import NavbarRegular from '../components/NavbarRegular';
+import Navbar from '../components/Navbar';
 
 export default function DefaultLayout(props) {
     return (
         <div>
-            <NavbarRegular />
+            <Navbar />
             {props.children}
         </div>
     )

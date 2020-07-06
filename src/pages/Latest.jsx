@@ -1,44 +1,72 @@
-import React from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
 import Navbar from '../components/Navbar';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import CardColumns from 'react-bootstrap/CardColumns';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import EditProfile from '../modals/EditProfile';
-// import FoodThumbnail from '../components/FoodThumbnail';
+// import { Link } from 'react-router-dom';
 
-export default function Fridge() {
-    // constructor(props) {
-    //     super(props)
-    // }
-    const [modalShow, setModalShow] = React.useState(false);
+export default class Latest extends Component {
 
+        
+        state = {
+            foods: [],
+            error: null
+        }
+    
+
+    componenentDidMount() {
+        this.getFoods();
+    }
+
+    getFoods() {
+        debugger
+        axios.get('http://localhost:3000/latest')
+        .then(response => {
+            
+            this.setState({
+                foods: response.data
+            })
+        })
+    }
+
+    render() {
         return (
             <div>
                 <Navbar />
                 <Container>
                     <Row className="my-5">
                         <Col>
-                        <h1>Hey username!</h1>
-                        </Col>
-                        <Col />
-                        <Col className="text-right">
-                        <h6>User details</h6>
-                        </Col>
-                        <Col className="text-center">
-                        <p>User profile picture</p>
-                        <>
-                        <Button onClick={() => setModalShow(true)}>Edit profile</Button>
-                        <EditProfile
-                            show={modalShow}
-                            onHide={() => setModalShow(false)}
-                        />
-                        </>
+                        <h2>Latest submissions</h2>
                         </Col>
                     </Row>
                     <Row>
+                    
+                    
+                
+
+                {
+                    this.state.foods.map((food, index) => {
+                        return (
+                            <div key={`${food.name}-${food.owner}`}>
+                                {/* <Link to={`/foods/${food._id}`}> */}
+                                
+                                        <h5>{food.name}</h5>
+                                        <h6>{food.category}</h6>
+                                        <p>{food.owner}</p>
+                                    
+                                {/* </Link> */}
+                            </div>
+                        )
+                    })
+                }
+
+
+
+
+
                         <CardColumns>
                             <Card>
                                 <Card.Img variant="top" src="holder.js/100px160" />
@@ -131,19 +159,10 @@ export default function Fridge() {
                                 </Card.Body>
                             </Card>
                         </CardColumns>
+
                     </Row>
                 </Container>
-                {/* {
-                    this.state.foodBox.map((food, index) => 
-                    <FoodThumbnail
-                        index={`${index}-${food.name}`}
-                        photo={food.photo}
-                        name={food.name}
-                        category={food.category}
-                    />
-                    )
-                } */}
             </div>
         )
-    
+    }
 }
