@@ -1,14 +1,16 @@
 import React from 'react';
-import './Home.css'
+import './Home.css';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
 import Signup from '../modals/Signup';
 import Login from '../modals/Login';
 import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Media from 'react-bootstrap/Media';
+import Footer from '../components/Footer';
 
 export default function Home(props) {
 
@@ -19,8 +21,7 @@ export default function Home(props) {
             <div>
                 <div className="splash">
                     <h1 className="title">Friendly Fridges</h1>
-                    <p className="headline">Help us reducing food waist by sharing those leftovers of yours!</p>
-                    <ButtonToolbar className="auth">
+                    <ButtonToolbar className="my-5 auth">
                     <ButtonGroup className="mr-2">
                         <Button variant="dark" onClick={() => setLgShow(true)}>Sign up</Button>
                         <Signup
@@ -47,7 +48,7 @@ export default function Home(props) {
                         {/* BENEFIT */}
                         <Col xs={6} md={4} className="mb-5">
                             <div className="benefit">
-                                <h3 className="quote">“When we share, we open doors to a new beginning.”</h3>
+                                <h3 className="quote scale-up-bottom">“When we share, we open doors to a new beginning.”</h3>
                                 <h5>― Paul Bradley Smith</h5>
                                 <br />
                                 <p>Whether you are overwhelmed by your wedding party leftovers or planning a long holiday abroad, there is an alternative to throwing the food you are leaving behind: sharing, for free!</p>
@@ -61,58 +62,63 @@ export default function Home(props) {
                                 <h3>How does it work?</h3>
                                 <Container>
                                     <Row>
-                                        <Col xs={2} className="py-3"><Media><img className="icon align-self-center" src="./icons/refrigerator.png" alt=""/></Media></Col>
-                                        <Col xs={8} className="py-3">Easily share whole foods or beverages to an entire community on our platform. *Due to hygiene concerns cooked meals are not allowed.</Col>
+                                        <Col xs={2} className="py-3 vertical-center"><Media><img className="icon align-self-center" src="./icons/refrigerator.png" alt=""/></Media></Col>
+                                        <Col xs={8} className="py-3">Easily share whole foods* or beverages to an entire community on our platform.
+                                        <Form.Text muted>*Due to hygiene concerns cooked meals are not allowed.</Form.Text></Col>
                                     </Row>
                                     <Row>
-                                        <Col xs={2} className="py-3"><img className="icon" src="./icons/laptop-computer.png" alt=""/></Col>
-                                        <Col xs={8} className="py-3">Explore the different categories available. Coming in v.2: filter foods by location and display pick up locations on a map.</Col>
+                                        <Col xs={2} className="py-3 vertical-center"><img className="icon" src="./icons/laptop-computer.png" alt=""/></Col>
+                                        <Col xs={8} className="py-3 vertical-center">Explore the different categories available.</Col>
                                     </Row>
                                     <Row>
-                                        <Col xs={2} className="py-3"><img className="icon" src="./icons/bread.png" alt=""/></Col>
-                                        <Col xs={8} className="py-3">Connect with any fridge owner to request additional information about a food and plan a pick up</Col>
+                                        <Col xs={2} className="py-3 vertical-center"><img className="icon" src="./icons/bread.png" alt=""/></Col>
+                                        <Col xs={8} className="py-3"><b>Coming soon:</b> Connect with any fridge owner to request additional information or plan a pick up</Col>
                                     </Row>
                                 </Container>
                             </div>
                         </Col>
                         <Col xs={12} md={8} />
                     </Row>
+            
+                    
                     <Row className="facts my-5">
-                        <Col xs={12} md={4} className="py-5">
-                            <div className="fact-1">
-                                <h3>Fact 1</h3>
+                    <Col xs={12}>
+                        <Row>
+                            <Col xs={12} className="text-center">
+                            <h3>Did you know?</h3>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col xs={12} md={4} className="p-5 vertical-center">
+                                <img src="./images/fact-1.jpeg" alt="" className="fact-img"/>
                                 <p>
                                     Over 1/3 of all food produced globally goes to waste.
-                                    Ref: http://www.fao.org/home/en/
+                                    <Form.Text><a href="http://www.fao.org/home/en/" className="text-muted">Source</a></Form.Text>               
                                 </p>
-                            </div>
-                        </Col>
-                        <Col xs={12} md={4} className="py-5">
-                            <div className="fact-2">
-                                <h3>Fact 2</h3>
+                            </Col>
+                            <Col xs={12} md={4} className="p-5 vertical-center">
+                                <img src="./images/fact-2.jpeg" alt="" className="fact-img"/>
+                                <p>
+                                2.3 billion people are joining the planet by 2050 – this will require a 60-70% increase in global food production. Or we can just stop throwing away our food!
+                                    <Form.Text><a  href="http://www.lovefoodhatewaste.com/node/2472" className="text-muted">Source</a></Form.Text>
+                                </p>
+                            </Col>
+                            <Col xs={12} md={4} className="p-5 vertical-center">
+                                <img src="./images/fact-3.jpg" alt="" className="fact-img"/>
                                 <p>
                                     In most developed countries, over half of all food waste takes place in the home.
-                                    Ref: http://www.lovefoodhatewaste.com/node/2472
+                                    <Form.Text><a href="http://www.fao.org/fileadmin/templates/wsfs/docs/expert_paper/How_to_Feed_the_World_in_2050.pdf" className="text-muted">Source</a></Form.Text>
                                 </p>
-                            </div>
-                        </Col>
-                        <Col xs={12} md={4} className="py-5">
-                            <div className="fact-3">
-                                <h3>Fact 3</h3>
-                                <p>
-                                    2.3 billion people are joining the planet by 2050 – this will require a 60-70% increase in global food production. Or we can just stop throwing away our food!
-                                    Ref: http://www.fao.org/fileadmin/templates/wsfs/docs/expert_paper/How_to_Feed_the_World_in_2050.pdf
-                                </p>
-                            </div>
-                        </Col>
+                            </Col>
+                        </Row>
+                    </Col>
                     </Row>
+
                     <Row>
-                        <Col xs={12} className="py-5 text-center">
-                            <div className="lcfa">
-                                <h3>Last call for action</h3>
+                        <Col xs={12} className="lcfa text-center">
                                 <p>Do you care as much as we do? Show it, meet like-minded people and make a difference!</p>
-                                <ButtonGroup className="mr-2">
-                                    <Button variant="dark" onClick={() => setLgShow(true)}>Join the movement!</Button>
+                                <ButtonGroup>
+                                    <Button variant="dark" size="lg" onClick={() => setLgShow(true)}>Join the movement!</Button>
                                     <Signup
                                     {...props}
                                     size="lg"
@@ -120,10 +126,10 @@ export default function Home(props) {
                                     onHide={() => setLgShow(false)}
                                     />
                                 </ButtonGroup>
-                            </div>
                         </Col>
                     </Row>
                 </Container>
+                <Footer />
             </div>
             
         )

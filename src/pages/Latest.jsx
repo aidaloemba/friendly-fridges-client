@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Navbar from '../components/Navbar';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import CardColumns from 'react-bootstrap/CardColumns';
 import Card from 'react-bootstrap/Card';
+import DefaultLayout from '../layouts/Default';
 // import { Link } from 'react-router-dom';
 
 export default class Latest extends Component {
@@ -29,9 +29,9 @@ export default class Latest extends Component {
     render() {
         return (
             <div>
-                <Navbar />
+                <DefaultLayout>
                 <Container>
-                    <Row className="my-5">
+                    <Row className="header my-5">
                         <Col>
                         <h2>Latest submissions</h2>
                         </Col>
@@ -52,7 +52,7 @@ export default class Latest extends Component {
                                 </Card.Text>
                                 </Card.Body>
                                 <Card.Footer>
-                                <small className="text-muted">Submitted 3 days ago in Amsterdam by {food.owner}</small>
+                                <small className="text-muted">Submitted on {food.createdAt} in Amsterdam by {food.owner}</small>
                                 </Card.Footer>
                             </Card>
                             </div>
@@ -63,6 +63,7 @@ export default class Latest extends Component {
 
                     </Row>
                 </Container>
+            </DefaultLayout>
             </div>
         )
     }

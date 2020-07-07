@@ -94,7 +94,7 @@ export default class SubmitFood extends Component {
                                 name="photo"
                                 disabled
                                 id="custom-file-translate-scss"
-                                label="Coming in v2!"
+                                label="Coming soon"
                                 lang="en"
                                 custom
                             />

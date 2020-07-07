@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Navbar from '../components/Navbar';
+import DefaultLayout from '../layouts/Default';
 import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -60,11 +60,11 @@ export default class Fridge extends Component {
         // return <h1>You fridge is empty!</h1>;
         return (
             <div>
-                <Navbar />
+                <DefaultLayout>
                 <Container>
-                    <Row className="my-5">
+                    <Row className="header my-5">
                         <Col>
-                        <h1>Hey there {/* {req.session.currentUser.name}! */}</h1>
+                        <h2>My fridge</h2>
                         </Col>
                         <Col />
                         <Col className="text-right">
@@ -83,6 +83,11 @@ export default class Fridge extends Component {
                     </Row>
                     <Row>
                         <CardColumns>
+                        <Card>
+                                <Card.Body>
+                                <p>Add food</p>
+                                </Card.Body>
+                            </Card>
                         {
                     this.state.foods.map((food, index) => {
                         return (
@@ -119,6 +124,7 @@ export default class Fridge extends Component {
                     />
                     )
                 } */}
+                </DefaultLayout>
             </div>
         )
     }

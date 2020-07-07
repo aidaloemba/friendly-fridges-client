@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { getUser } from '../utilities/auth';
 import SubmitFood from '../modals/SubmitFood';
+import './Navbar.css';
 
 
 export default function NavbarComponent(props)  {
@@ -13,8 +14,8 @@ export default function NavbarComponent(props)  {
 
     if (user) {
         return (
-            <Navbar bg="light" expand="lg">
-                <Navbar.Brand href="/">Logo</Navbar.Brand>
+            <Navbar className="navbar px-5" bg="light" expand="lg">
+                <Navbar.Brand href="/" className="logo rotate-left">FF</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">   
