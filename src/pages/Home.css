@@ -48,11 +48,11 @@
 .feature {
     margin: -75% 0 0 0;
     padding: 50px;
-    width: 400px;
+    width: 600px;
 }
 
 .icon {
-    max-width: 40%;
+    max-width: 50px;
 }
 
 .facts {

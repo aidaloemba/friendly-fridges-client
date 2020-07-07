@@ -18,7 +18,7 @@ export default class Latest extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3000/latest')
+        axios.get(`${process.env.REACT_APP_API_BASE}/latest`)
         .then(response => {
             this.setState({
                 foods: response.data
@@ -47,8 +47,8 @@ export default class Latest extends Component {
                                 <Card.Body>
                                 <Card.Title>{food.name}</Card.Title>
                                 <Card.Text>
-                                    <h5>{food.category}</h5>
-                                    <p>{food.description}</p>
+                                    {food.category}
+                                    {food.description}
                                 </Card.Text>
                                 </Card.Body>
                                 <Card.Footer>

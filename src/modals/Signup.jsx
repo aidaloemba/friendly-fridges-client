@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 export default class Signup extends Component {
     constructor(props){
         super(props);
+        
         this.signupUser = this.signupUser.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
@@ -29,6 +30,7 @@ export default class Signup extends Component {
         e.preventDefault();
         signup(this.state.user)
         .then(() => {
+            
             this.props.history.push("/fridge")
         })
     }
@@ -64,12 +66,14 @@ export default class Signup extends Component {
                         </Form.Row>
                         <Form.Group>
                             <Form.Control placeholder="Email" type="email" onChange={this.handleChange} name="email" />
+                            <Form.Text className="text-muted">
+                                We'll never share your email with anyone else ;)
+                            </Form.Text>
                         </Form.Group>
                         <Form.Group>
                             <Form.Control placeholder="Password" type="password" onChange={this.handleChange} name="password" />
                             <Form.Text muted>
-                                Your password must be 8-20 characters long, contain letters and numbers, and
-                                must not contain spaces, special characters, or emoji.
+                                Your password must be 6-10 characters long and contain letters and numbers
                             </Form.Text>
                         </Form.Group>
                         <Button onClick={this.signupUser} variant="primary">Sign up</Button>

@@ -10,7 +10,7 @@ export default class Detail extends Component {
 
     getSingleFood() {
         const { params } = this.props.match;
-        axios.get(`http://localhost:3001/food/detail/${params.id}`)
+        axios.get(`${process.env.REACT_APP_API_BASE}/food/detail/${params.id}`)
             .then(response =>{
                 const selectedFood = response.data;
                 this.setState(selectedFood);

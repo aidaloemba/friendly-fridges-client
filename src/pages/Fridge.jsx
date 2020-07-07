@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import CardColumns from 'react-bootstrap/CardColumns';
 import Card from 'react-bootstrap/Card';
-// import Button from 'react-bootstrap/Button';
+import Button from 'react-bootstrap/Button';
 // import EditProfile from '../modals/EditProfile';
 
 export default class Fridge extends Component {
@@ -16,12 +16,16 @@ export default class Fridge extends Component {
             foods: [],
             error: null
         }
+        this.deleteFood = this.deleteFood.bind(this);
 // const [modalShow, setModalShow] = React.useState(false);
     }
 
+
+
     componentDidMount() {
+
         axios({
-            url: 'http://localhost:3000/fridge',
+            url: `${process.env.REACT_APP_API_BASE}/fridge`,
             withCredentials: true,
             method: "GET"
         })
@@ -32,6 +36,25 @@ export default class Fridge extends Component {
         })
     }
 
+
+    deleteFood(_id){
+        debugger
+        const updatedFoods = [...this.state.foods, _id]
+        axios.get(`${process.env.REACT_APP_API_BASE}/fridge/delete/${_id}`)
+            .then((response)=> {
+                this.setState({
+                    foods: updatedFoods
+                })
+                this.props.history.push('/fridge');
+            })
+            .catch((err) => {
+                this.setState({
+                    error: err.response.data.message
+                });
+            });
+	}
+			
+
     render() {
         // if(this.state.foods.length === 0 )
         // return <h1>You fridge is empty!</h1>;
@@ -41,7 +64,7 @@ export default class Fridge extends Component {
                 <Container>
                     <Row className="my-5">
                         <Col>
-                        <h1>Hey username!</h1>
+                        <h1>Hey there {/* {req.session.currentUser.name}! */}</h1>
                         </Col>
                         <Col />
                         <Col className="text-right">
@@ -75,6 +98,7 @@ export default class Fridge extends Component {
                                 </Card.Body>
                                 <Card.Footer>
                                 <small className="text-muted">Submitted 3 days ago in Amsterdam by {food.owner}</small>
+                                <Button onClick={()=> this.deleteFood(food._id)}>Delete</Button>
                                 </Card.Footer>
                             </Card>
                             </div>

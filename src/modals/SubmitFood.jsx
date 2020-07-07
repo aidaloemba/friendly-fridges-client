@@ -22,15 +22,14 @@ export default class SubmitFood extends Component {
     }
 
     handleSubmit(e){
+        
         e.preventDefault();
-        // let formData = new FormData(this.formRef.current);
-        // debugger here
         const setFood = (food)=> {
             window.localStorage.setItem("food", JSON.stringify(food));
         }
         
              axios({
-                url: 'http://localhost:3000/food/submit',
+                url: `${process.env.REACT_APP_API_BASE}/food/submit`,
                 data: qs.stringify(this.state.food),
                 headers: {
                     'content-type': 'application/x-www-form-urlencoded' 
@@ -75,9 +74,6 @@ export default class SubmitFood extends Component {
                 </Modal.Header>
                 <Modal.Body>
                     <Form onSubmit={this.handleSubmit}>
-                        {/* <Form.Group>
-                            <Form.File name="photo" id="photo" label="Upload photo" />
-                        </Form.Group> */}
                         <Form.Group controlId="name">
                             <Form.Control placeholder="Name" name="name" type="text" onChange={this.handleChange} />
                         </Form.Group>
@@ -89,14 +85,19 @@ export default class SubmitFood extends Component {
                                 <option value="Meat">Meat</option>
                                 <option value="Poultry & Eggs">Poultry & Eggs</option>
                                 <option value="Fish & Seafood">Fish & Seafood</option>
-                                <option value="Vegan">Vegan</option>
+                                <option value="Vegan">Vegetarian alternative</option>
                                 <option value="Beverage">Beverage</option>
-                                <option value="Cooked Meal">Cooked Meal</option>
-                                <option value="5">Option 5</option>
                             </Form.Control>
                         </Form.Group>
-                        <Form.Group controlId="description.ControlTextarea1">
-                            <Form.Control placeholder="Description" name="description" as="textarea" rows="3" onChange={this.handleChange} />
+                        <Form.Group>
+                            <Form.File 
+                                name="photo"
+                                disabled
+                                id="custom-file-translate-scss"
+                                label="Coming in v2!"
+                                lang="en"
+                                custom
+                            />
                         </Form.Group>
 
                         <Button variant="dark" type="submit">Submit</Button>

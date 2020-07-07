@@ -56,9 +56,6 @@ export default class Login extends Component {
                     <Form>
                         <Form.Group>
                             <Form.Control name="email" onChange={this.handleChange} type="email" placeholder="Email address" />
-                            <Form.Text className="text-muted">
-                                We'll never share your email with anyone else.
-                            </Form.Text>
                         </Form.Group>
                         <Form.Group>
                             <Form.Control name="password" onChange={this.handleChange} type="password" placeholder="Password" />

@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import Signup from './modals/Signup';
-import Login from './modals/Login';
 import Logout from './pages/user/Logout';
 import Fridge from './pages/Fridge';
 import Latest from './pages/Latest';
-import SubmitFood from './modals/SubmitFood';
 import Detail from './pages/food/Detail';
 import Update from './modals/food/Update';
 
@@ -31,12 +28,9 @@ export default class App extends Component {
     return (
       <Router>
         <Route exact path="/" component={Home} />
-        <Route path="/signup" component={Signup} />
-        <Route path="/login" component={Login} />
         <Route path="/logout" component={Logout} />
         <Route path="/latest" component={Latest} />
         <Route path="/fridge" component={Fridge} />
-        <Route path="/food/submit" component={SubmitFood} />
         <Route path="/food/detail" component={Detail} />
         <Route path="/food/update" component={Update} />
       </Router>
