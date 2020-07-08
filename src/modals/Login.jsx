@@ -43,7 +43,7 @@ export default class Login extends Component {
         return (
             <Modal
             {...this.props}
-            size="lg"
+            size="sm"
             aria-labelledby="contained-modal-title-vcenter"
             centered
             >
@@ -66,7 +66,6 @@ export default class Login extends Component {
                             <p>{this.state.error.message || "error"}</p>
                         }
                     </Form>
-                    <a href="/signup"> Not a member? Sign up!</a>
                 </Modal.Body>
             </Modal>
         )

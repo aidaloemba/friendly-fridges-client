@@ -12,6 +12,7 @@ import Button from 'react-bootstrap/Button';
 export default class Fridge extends Component {
     constructor(props) {
         super(props)
+        
         this.state = {
             foods: [],
             error: null
@@ -23,7 +24,6 @@ export default class Fridge extends Component {
 
 
     componentDidMount() {
-
         axios({
             url: `${process.env.REACT_APP_API_BASE}/fridge`,
             withCredentials: true,
@@ -38,9 +38,14 @@ export default class Fridge extends Component {
 
 
     deleteFood(_id){
-        debugger
+        
         const updatedFoods = [...this.state.foods, _id]
-        axios.get(`${process.env.REACT_APP_API_BASE}/fridge/delete/${_id}`)
+        axios({
+            url: `${process.env.REACT_APP_API_BASE}/fridge/delete/${_id}`,
+            withCredentials: true,
+            method: "GET"
+        })
+        
             .then((response)=> {
                 this.setState({
                     foods: updatedFoods
@@ -91,9 +96,9 @@ export default class Fridge extends Component {
                         {
                     this.state.foods.map((food, index) => {
                         return (
-                            <div key={`${food.name}-${food.owner}`}>
+                            <div key={`key-${food._id}`}>
                             <Card>
-                                <Card.Img variant="top" src={food.photo} alt="Food name photo"/>
+                                <Card.Img variant="top" src={food.photo} alt="Food photo"/>
                                 <Card.Body>
                                 <Card.Title>{food.name}</Card.Title>
                                 <Card.Text>
@@ -102,7 +107,7 @@ export default class Fridge extends Component {
                                 </Card.Text>
                                 </Card.Body>
                                 <Card.Footer>
-                                <small className="text-muted">Submitted 3 days ago in Amsterdam by {food.owner}</small>
+                                <small className="text-muted">Submitted on {food.createdAt} in Amsterdam</small>
                                 <Button onClick={()=> this.deleteFood(food._id)}>Delete</Button>
                                 </Card.Footer>
                             </Card>

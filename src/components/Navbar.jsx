@@ -15,7 +15,7 @@ export default function NavbarComponent(props)  {
     if (user) {
         return (
             <Navbar className="navbar px-5" bg="light" expand="lg">
-                <Navbar.Brand href="/" className="logo rotate-left">FF</Navbar.Brand>
+                <Navbar.Brand href="/" className="logo rotate-left">F</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">   

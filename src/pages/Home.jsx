@@ -20,22 +20,20 @@ export default function Home(props) {
         return (
             <div>
                 <div className="splash">
-                    <h1 className="title">Friendly Fridges</h1>
+                    <h1 className="title">Friendly<br  />Fridges</h1>
                     <ButtonToolbar className="my-5 auth">
                     <ButtonGroup className="mr-2">
-                        <Button variant="dark" onClick={() => setLgShow(true)}>Sign up</Button>
+                        <Button variant="light" size="lg" onClick={() => setLgShow(true)}>Sign up</Button>
                         <Signup
                         {...props}
-                        size="lg"
                         show={lgShow}
                         onHide={() => setLgShow(false)}
                         />
                     </ButtonGroup>
                     <ButtonGroup className="mr-2">
-                        <Button variant="outline-dark" onClick={() => setSmShow(true)}>Log in</Button>
+                        <Button variant="outline-dark link" size="lg" onClick={() => setSmShow(true)}>Log in</Button>
                         <Login
                         {...props}
-                        size="sm"
                         show={smShow}
                         onHide={() => setSmShow(false)}
                     />
@@ -118,10 +116,9 @@ export default function Home(props) {
                         <Col xs={12} className="lcfa text-center">
                                 <p>Do you care as much as we do? Show it, meet like-minded people and make a difference!</p>
                                 <ButtonGroup>
-                                    <Button variant="dark" size="lg" onClick={() => setLgShow(true)}>Join the movement!</Button>
+                                    <Button variant="dark" onClick={() => setLgShow(true)}>Join the movement!</Button>
                                     <Signup
                                     {...props}
-                                    size="lg"
                                     show={lgShow}
                                     onHide={() => setLgShow(false)}
                                     />

@@ -83,7 +83,6 @@ export default class Signup extends Component {
                             <p>{this.state.error.message || "error"}</p>
                         } 
                     </Form>
-                    <a href="/login"> Already a member? Log in!</a>
                 </Modal.Body>
             </Modal>
         )

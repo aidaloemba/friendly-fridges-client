@@ -7,7 +7,8 @@ body {
 }
 
 .splash {
-    background-image: url("/images/photo-1592231167824-f3bf35eee521.jpeg");
+    padding: 100px;
+    background-image: url("/images/356893-PAVKBI-96.jpg");
     background-size: cover;
     width: 100vw;
     height: 100vh;
@@ -15,18 +16,18 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .title {
-    font-family: 'Cormorant Garamond', 'Times New Roman', Times, serif;
-    font-size: 3em;
+    font-weight: bolder;
+    font-size: 5em;
     text-transform: uppercase;
+    color: #FFFFFF;
 }
 
 h3 {
-    font-family: 'Cormorant Garamond', 'Times New Roman', Times, serif;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 .auth {

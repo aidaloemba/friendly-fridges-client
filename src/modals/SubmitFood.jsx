@@ -4,9 +4,9 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import qs from "qs";
+import { withRouter } from 'react-router';
 
-
-export default class SubmitFood extends Component {
+class SubmitFood extends Component {
     constructor(props){
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -109,3 +109,5 @@ export default class SubmitFood extends Component {
         )
     }
 }
+
+export default withRouter(SubmitFood)

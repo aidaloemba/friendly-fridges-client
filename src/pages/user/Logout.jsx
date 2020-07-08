@@ -4,6 +4,7 @@ import {logout} from '../../utilities/auth';
 export default class Logout extends Component {
 
     logoutUser(e) {
+        debugger
         logout(this.state.user)
         .then(() => {
             this.props.history.push("/")
