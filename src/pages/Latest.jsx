@@ -52,7 +52,7 @@ export default class Latest extends Component {
                                 </Card.Text>
                                 </Card.Body>
                                 <Card.Footer>
-                                <small className="text-muted">Submitted on {food.createdAt} in Amsterdam by {food.owner}</small>
+                                <small className="text-muted">Submitted on {food.createdAt}</small>
                                 </Card.Footer>
                             </Card>
                             </div>

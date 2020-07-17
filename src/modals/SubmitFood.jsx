@@ -100,7 +100,7 @@ class SubmitFood extends Component {
                             />
                         </Form.Group>
 
-                        <Button variant="dark" type="submit">Submit</Button>
+                        <Button variant="outline-dark" type="submit">Submit</Button>
                         
                     </Form>
                 </Modal.Body>

@@ -14,18 +14,18 @@ export default function NavbarComponent(props)  {
 
     if (user) {
         return (
-            <Navbar className="navbar px-5" bg="light" expand="lg">
-                <Navbar.Brand href="/" className="logo rotate-left">F</Navbar.Brand>
+            <Navbar className="navbar px-5" variant="dark" expand="lg">
+                <Navbar.Brand href="/latest" className="logo rotate-left">F</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">   
-                    <Nav.Link href="/latest">Find food</Nav.Link>
+                    <Nav.Link href="/latest"></Nav.Link>
                     </Nav>
 
                     <Navbar.Text>
-                    <NavDropdown title="User photo thumb" id="basic-nav-dropdown">
+                    <NavDropdown title="" id="basic-nav-dropdown">
                     <>
-                        <NavDropdown.Item onClick={() => setModalShow(true)}>
+                        <NavDropdown.Item className="blackify" onClick={() => setModalShow(true)}>
                             Submit food
                         </NavDropdown.Item>
                         <SubmitFood
@@ -34,10 +34,9 @@ export default function NavbarComponent(props)  {
                             onHide={() => setModalShow(false)}
                         />
                         </>
-                        <NavDropdown.Item href="/fridge">My fridge</NavDropdown.Item>
-                        <NavDropdown.Item href="#">Edit profile</NavDropdown.Item>
+                        <NavDropdown.Item href="/fridge" className="blackify">My fridge</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item href="/logout">Log out</NavDropdown.Item>
+                        <NavDropdown.Item href="/logout" className="blackify">Log out</NavDropdown.Item>
                     </NavDropdown>
                     </Navbar.Text>
                 </Navbar.Collapse>

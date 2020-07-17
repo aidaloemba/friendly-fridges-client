@@ -60,7 +60,7 @@ export default class Login extends Component {
                         <Form.Group>
                             <Form.Control name="password" onChange={this.handleChange} type="password" placeholder="Password" />
                         </Form.Group>
-                        <Button onClick={this.loginUser} variant="primary">Log in</Button>
+                        <Button onClick={this.loginUser} variant="outline-dark">Log in</Button>
                         {
                             this.state.error && 
                             <p>{this.state.error.message || "error"}</p>

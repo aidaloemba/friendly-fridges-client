@@ -73,10 +73,10 @@ export default class Fridge extends Component {
                         </Col>
                         <Col />
                         <Col className="text-right">
-                        <h6>User details</h6>
+                        {/* <h6>User details</h6> */}
                         </Col>
                         <Col className="text-center">
-                        <p>User profile picture</p>
+                        {/* <p>User profile picture</p> */}
                         {/* <>
                         <Button onClick={() => setModalShow(true)}>Edit profile</Button>
                         <EditProfile
@@ -88,11 +88,6 @@ export default class Fridge extends Component {
                     </Row>
                     <Row>
                         <CardColumns>
-                        <Card>
-                                <Card.Body>
-                                <p>Add food</p>
-                                </Card.Body>
-                            </Card>
                         {
                     this.state.foods.map((food, index) => {
                         return (
@@ -107,8 +102,9 @@ export default class Fridge extends Component {
                                 </Card.Text>
                                 </Card.Body>
                                 <Card.Footer>
-                                <small className="text-muted">Submitted on {food.createdAt} in Amsterdam</small>
-                                <Button onClick={()=> this.deleteFood(food._id)}>Delete</Button>
+                                <small className="text-muted">Submitted on {food.createdAt}</small>
+                                <br />
+                                <Button variant="outline-dark" onClick={()=> this.deleteFood(food._id)}>Delete</Button>
                                 </Card.Footer>
                             </Card>
                             </div>

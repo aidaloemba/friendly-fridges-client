@@ -76,7 +76,7 @@ export default class Signup extends Component {
                                 Your password must be 6-10 characters long and contain letters and numbers
                             </Form.Text>
                         </Form.Group>
-                        <Button onClick={this.signupUser} variant="primary">Sign up</Button>
+                        <Button onClick={this.signupUser} variant="outline-dark">Sign up</Button>
                     
                         {
                             this.state.error && 

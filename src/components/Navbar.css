@@ -1,8 +1,17 @@
+.navbar {
+        background-color: #b4e5f1;
+}
+
 .logo {
     letter-spacing: -0.7em;
     text-transform: uppercase;
     font-size: 2em;
     font-weight: bolder;
+    
+}
+
+.blackify {
+        color: rgb(59, 59, 59) !important;
 }
 
 .rotate-left {

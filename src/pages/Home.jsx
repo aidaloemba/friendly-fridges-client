@@ -31,7 +31,7 @@ export default function Home(props) {
                         />
                     </ButtonGroup>
                     <ButtonGroup className="mr-2">
-                        <Button variant="outline-dark link" size="lg" onClick={() => setSmShow(true)}>Log in</Button>
+                        <Button variant="outline-dark" size="lg" onClick={() => setSmShow(true)}>Log in</Button>
                         <Login
                         {...props}
                         show={smShow}
@@ -49,7 +49,7 @@ export default function Home(props) {
                                 <h3 className="quote scale-up-bottom">“When we share, we open doors to a new beginning.”</h3>
                                 <h5>― Paul Bradley Smith</h5>
                                 <br />
-                                <p>Whether you are overwhelmed by your wedding party leftovers or planning a long holiday abroad, there is an alternative to throwing the food you are leaving behind: sharing, for free!</p>
+                                <p>Whether you are overwhelmed with your wedding party leftovers or planning a long holiday abroad, there is an alternative to throwing the food you are leaving behind: sharing, for free!</p>
                             </div>
                         </Col>
                     </Row>
@@ -88,43 +88,48 @@ export default function Home(props) {
                         </Row>
                         <Row>
                             <Col xs={12} md={4} className="p-5 vertical-center">
-                                <img src="./images/fact-1.jpeg" alt="" className="fact-img"/>
+                                
                                 <p>
                                     Over 1/3 of all food produced globally goes to waste.
                                     <Form.Text><a href="http://www.fao.org/home/en/" className="text-muted">Source</a></Form.Text>               
                                 </p>
                             </Col>
                             <Col xs={12} md={4} className="p-5 vertical-center">
-                                <img src="./images/fact-2.jpeg" alt="" className="fact-img"/>
+                                
                                 <p>
                                 2.3 billion people are joining the planet by 2050 – this will require a 60-70% increase in global food production. Or we can just stop throwing away our food!
                                     <Form.Text><a  href="http://www.lovefoodhatewaste.com/node/2472" className="text-muted">Source</a></Form.Text>
                                 </p>
                             </Col>
                             <Col xs={12} md={4} className="p-5 vertical-center">
-                                <img src="./images/fact-3.jpg" alt="" className="fact-img"/>
+                                
                                 <p>
                                     In most developed countries, over half of all food waste takes place in the home.
                                     <Form.Text><a href="http://www.fao.org/fileadmin/templates/wsfs/docs/expert_paper/How_to_Feed_the_World_in_2050.pdf" className="text-muted">Source</a></Form.Text>
                                 </p>
                             </Col>
                         </Row>
-                    </Col>
-                    </Row>
-
-                    <Row>
-                        <Col xs={12} className="lcfa text-center">
-                                <p>Do you care as much as we do? Show it, meet like-minded people and make a difference!</p>
+                        <Row>
+                            <Col xs={12} className="text-center">
+                            <p>Do you care as much as we do? Meet like-minded people and make a difference!</p>
                                 <ButtonGroup>
-                                    <Button variant="dark" onClick={() => setLgShow(true)}>Join the movement!</Button>
+                                    <Button variant="light" onClick={() => setLgShow(true)}>Join the movement!</Button>
                                     <Signup
                                     {...props}
                                     show={lgShow}
                                     onHide={() => setLgShow(false)}
                                     />
                                 </ButtonGroup>
-                        </Col>
+                            </Col>
+                        </Row>
+                    </Col>
                     </Row>
+
+                    {/* <Row>
+                        <Col xs={12} className="lcfa text-center">
+                                
+                        </Col>
+                    </Row> */}
                 </Container>
                 <Footer />
             </div>
